@@ -29,7 +29,7 @@ echo "############################################################"
 request_cert() {
   # Run a temporary certbot container to request a certificate for the specified domain:
   echo "Running certbot container for "$DOMAIN
-  docker run -it --rm --name $LE_NAME -p $LE_PORT:$LE_PORT -v $LE_DIR"etc:/etc/letsencrypt" -v $LE_DIR"var:/var/lib/letsencrypt" certbot/certbot:latest certonly --standalone -d $DOMAIN --non-interactive --preferred-challenges http --agree-tos --email $LE_EMAIL --http-01-port=$LE_PORT
+  docker run --rm --name $LE_NAME -p $LE_PORT:$LE_PORT -v $LE_DIR"etc:/etc/letsencrypt" -v $LE_DIR"var:/var/lib/letsencrypt" certbot/certbot:latest certonly --standalone -d $DOMAIN --non-interactive --preferred-challenges http --agree-tos --email $LE_EMAIL --http-01-port=$LE_PORT
 
   # Grab the content of fullchain and privkey and combine them in $DOMAIN.pem (HAProxy requires this):
   echo
