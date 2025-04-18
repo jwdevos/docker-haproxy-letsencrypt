@@ -1,3 +1,5 @@
+**-- this repo will be archived and moved to https://codeberg.org/jwdevos/docker-haproxy-letsencrypt --**
+
 # docker-haproxy-letsencrypt
 
 This repo contains a bash script named "installcert" that can be used to request and install new certificates from Let's Encrypt. This script is good for use in combination with Docker, HAProxy and Let's Encrypt, specifically the Certbot implementation. In summary, the script runs a temporary Docker container for Certbot, requesting new certificates for each domain in the array of domain names. The script displays output on the screen, but also logs it to a file. At the top of the script there are some variables:  
